@@ -1,0 +1,93 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React from 'react';
+import {View, Text, Image, TextInput, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
+import Title from './src/components/Title'
+
+const App = () => {
+  const {height} = useWindowDimensions();
+  const imageStyle = {
+    width: 500,
+    height: 600,
+    resizeMode: 'cover',
+    position: 'absolute',
+    top: -60,
+    left: -80,
+    right: 0,
+  };
+
+  return (
+  <View style={{flex: 1}}>
+
+    <View style={styles.container}>
+      <View style={styles.rowContainer}>
+        <Image
+          source={{uri: 'https://i.pinimg.com/originals/02/7e/67/027e67888d4975057a7200fe3022d0d7.jpg'}}
+          style={imageStyle}
+        />
+      </View>
+      <Text
+        style={styles.textStyle}
+        allowFontScaling={false}>
+          hi, There !
+      </Text>
+      
+      <View style={[styles.textInputContainer, {bottom: 0}]}>
+        <TextInput
+          style={styles.inputStyle}
+          placeholder=" ketik sesuatu ...."
+          placeholderTextColor="black"
+        />
+        
+      </View>
+    </View>
+
+  </View>
+
+ 
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    backgroundColor: 'white', 
+  },
+  rowContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textStyle: {
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    position: 'absolute',
+    top: 600, // Add this line to control the position of the text
+    left: 0,
+    right: 0,
+
+  },
+  textInputContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 40,
+  },
+  inputStyle: {
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 2,
+    paddingLeft: 90,
+    paddingRight: 80,
+    color: 'black'
+  },
+});
+
+export default App;
